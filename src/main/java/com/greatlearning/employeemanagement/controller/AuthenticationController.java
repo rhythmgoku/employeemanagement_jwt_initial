@@ -73,8 +73,8 @@ public class AuthenticationController {
 	@Operation(summary = "Validate Auth Token", description = "Suceess if the token valid ")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successfully Validated", content = {
 			@Content(mediaType = "application/json", schema = @Schema(implementation = JsonWebToken.class), examples = {
-					@ExampleObject(name = "1", value = "{ \"token\": \"******TOKEN******\", \"valid\": true, \"expirationDate\": \"2024-05-20T02:02:15.000+00:00\", \"userName\": \"admin\", \"message\": \"Valid json web token\" }") }) }),
-			@ApiResponse(responseCode = "406", description = "Some fields can not be found") })
+					@ExampleObject(name = "1", value = "{ \"token\": \"******TOKEN******\", \"valid\": true, \"expirationDate\": \"2024-05-20T02:02:15.000+00:00\", \"userName\": \"admin\", \"message\": \"Valid json web token\" }") }) })
+			})
 	@PostMapping("/validate-token")
 	public ResponseEntity<JsonWebToken> validateToken(
 			@io.swagger.v3.oas.annotations.parameters.RequestBody(description = "JsonWebToken object to validate", required = true, content = @Content(schema = @Schema(implementation = JsonWebToken.class), examples = {

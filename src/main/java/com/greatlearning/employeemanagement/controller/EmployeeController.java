@@ -54,7 +54,9 @@ public class EmployeeController {
 	@Operation(summary = "Add Employee", description = "Return newly added Employee")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successfully Added", content = {
 			@Content(mediaType = "application/json", schema = @Schema(implementation = Employee.class), examples = {
-					@ExampleObject(name = "1", value = "{ \"id\": 1, \"firstName\": \"Rahul\", \"lastName\": \"Pandey\", \"email\": \"pandey.rahul@gl.com\" }") }) }) })
+					@ExampleObject(name = "1", value = "{ \"id\": 1, \"firstName\": \"Rahul\", \"lastName\": \"Pandey\", \"email\": \"pandey.rahul@gl.com\" }") }) }) , @ApiResponse(responseCode = "403", description = "FORBIDDEN", content = {
+							@Content(mediaType = "application/json", schema = @Schema(implementation = CustomBusinessException.class), examples = {
+									@ExampleObject(name = "1", value = "{ \"timestamp\": \"20-05-2024 07:43:53\", \"code\": 403, \"status\": \"403 FORBIDDEN\", \"message\": \"You don't have enough privileges to perform this action\" }") }) })})
 	public ResponseEntity<Employee> addEmployee(
 			@io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Employee object to create", required = true, content = @Content(schema = @Schema(implementation = Employee.class), examples = {
 					@ExampleObject(name = "1", value = "{ \"firstName\": \"Rahul\", \"lastName\": \"Pandey\", \"email\": \"pandey.rahul@gl.com\" }") })) @Valid @RequestBody Employee employee)
@@ -67,7 +69,9 @@ public class EmployeeController {
 	@Operation(summary = "Find Employee by Id", description = "Returnd Employee by Id")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successfully retrieved", content = {
 			@Content(mediaType = "application/json", schema = @Schema(implementation = Employee.class), examples = {
-					@ExampleObject(name = "1", value = "{ \"id\": 1, \"firstName\": \"Rahul\", \"lastName\": \"Pandey\", \"email\": \"pandey.rahul@gl.com\" }") }) }) })
+					@ExampleObject(name = "1", value = "{ \"id\": 1, \"firstName\": \"Rahul\", \"lastName\": \"Pandey\", \"email\": \"pandey.rahul@gl.com\" }") }) }) , @ApiResponse(responseCode = "403", description = "FORBIDDEN", content = {
+							@Content(mediaType = "application/json", schema = @Schema(implementation = CustomBusinessException.class), examples = {
+									@ExampleObject(name = "1", value = "{ \"timestamp\": \"20-05-2024 07:43:53\", \"code\": 403, \"status\": \"403 FORBIDDEN\", \"message\": \"You don't have enough privileges to perform this action\" }") }) }) })
 	public ResponseEntity<Employee> findEmployeeById(
 			@Parameter(name = "id", description = "Employee id", example = "1") @PathVariable("id") Integer id)
 			throws CustomBusinessException {
@@ -79,7 +83,9 @@ public class EmployeeController {
 	@Operation(summary = "Edit Employee", description = "Edits the Employee by Id")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successfully Edited", content = {
 			@Content(mediaType = "application/json", schema = @Schema(implementation = Employee.class), examples = {
-					@ExampleObject(name = "1", value = "{ \"id\": 1, \"firstName\": \"Rahul\", \"lastName\": \"Pandey\", \"email\": \"pandey.rahul@gl.com\" }") }) }) })
+					@ExampleObject(name = "1", value = "{ \"id\": 1, \"firstName\": \"Rahul\", \"lastName\": \"Pandey\", \"email\": \"pandey.rahul@gl.com\" }") }) }) , @ApiResponse(responseCode = "403", description = "FORBIDDEN", content = {
+							@Content(mediaType = "application/json", schema = @Schema(implementation = CustomBusinessException.class), examples = {
+									@ExampleObject(name = "1", value = "{ \"timestamp\": \"20-05-2024 07:43:53\", \"code\": 403, \"status\": \"403 FORBIDDEN\", \"message\": \"You don't have enough privileges to perform this action\" }") }) }) })
 	public ResponseEntity<Employee> editEmployee(
 			@Parameter(name = "id", description = "Employee id", example = "1") @PathVariable("id") Integer id,
 			@io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Employee object to edit", required = true, content = @Content(schema = @Schema(implementation = Employee.class), examples = {
@@ -94,7 +100,9 @@ public class EmployeeController {
 	@Operation(summary = "Delete Employee", description = "Delete Employee by id")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successfully Deleted", content = {
 			@Content(mediaType = "application/json", schema = @Schema(implementation = String.class), examples = {
-					@ExampleObject(name = "1", value = "Deleted Employee with id - 1") }) }) })
+					@ExampleObject(name = "1", value = "Deleted Employee with id - 1") }) }) , @ApiResponse(responseCode = "403", description = "FORBIDDEN", content = {
+							@Content(mediaType = "application/json", schema = @Schema(implementation = CustomBusinessException.class), examples = {
+									@ExampleObject(name = "1", value = "{ \"timestamp\": \"20-05-2024 07:43:53\", \"code\": 403, \"status\": \"403 FORBIDDEN\", \"message\": \"You don't have enough privileges to perform this action\" }") }) }) })
 	public ResponseEntity<String> deleteEmployee(
 			@Parameter(name = "id", description = "Employee id", example = "1") @PathVariable("id") Integer id)
 			throws CustomBusinessException {
