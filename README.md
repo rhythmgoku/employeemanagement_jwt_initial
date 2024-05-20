@@ -306,10 +306,6 @@ In summary, the Employee Management Application leverages JWT for secure authent
 
 ![](screenshots/30.jpg)
 
-#### Set Generated Token In Swagger Authorize Section
-
-![](screenshots/40.jpg)
-
 ### Add Employee
 
 ![](screenshots/31.jpg)
@@ -354,7 +350,6 @@ In summary, the Employee Management Application leverages JWT for secure authent
 ![](screenshots/37.jpg)
 
 
-
 ## Other Corner Error Cases
 
 ### If No JWT Token Is Provided
@@ -362,3 +357,9 @@ In summary, the Employee Management Application leverages JWT for secure authent
 ![](screenshots/76.jpg)
 
 ![](screenshots/77.jpg)
+
+### If Expired JWT Token Is Provided
+
+![](screenshots/91.jpg)
+
+![](screenshots/92.jpg)
